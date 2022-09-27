@@ -55,12 +55,16 @@ Task 4
 When a user clicks the ‘Add some text’ button, a new paragraph should be added inside the section that says “LEARN MORE”
 */
 const learnMore = document.querySelector("#addTextBtn")
-learnMore.addEventListener("click", function() {
+
+function addParagraph(text) {
    const more = document.createElement("p") 
-   const p = document.createTextNode("LEARN MORE")
+   const p = document.createTextNode(text)
    more.appendChild(p)
+   
    document.getElementById("mainArticles").appendChild(more)
-})
+}
+learnMore.addEventListener("click", addParagraph)
+
 
 /*
 Task 5
@@ -84,20 +88,16 @@ Using the same function in Task 4,
 When the 'Add' button is clicked, get the text inside the input field and create a new paragraph in the "LEARN MORE" section
 Also clear the text inside the input field
 */
-const buttonSix = document.querySelector("#addArticleBtn");
-buttonSix.addEventListener("click", addP6);
+const addArticle = document.querySelector("#addArticleBtn")
 
-function addPSix() {
-    const input = document.querySelector("#addArticleInput")
-    const text = input.value
-
-    let newP = document.createElement("p")
-    newP.textContent=text
-    let learn = document.querySelector("#mainArticles")
-    learn.appendChild(newP)
-
-    input.value=""
-}
+addArticle.addEventListener("click", (event) => {
+    event.preventDefault()
+    const inputField = document.querySelector(".addArticle")
+    const inputText = inputField.value
+    addParagraph(inputText);
+    inputField.value = ""
+    
+})
 /*
 Task 7
 ======
@@ -106,16 +106,19 @@ Create an array of 5 different colors.
 Using the same function in Task 3, every time the 'Change colour' button is clicked, the background color will be changed with the next color in the array.
 The next color when you are in the last color of the array will be the first color again.
 */
-const colors= ["yellow", "red", "green", "blue"]
-const button2 = document.querySelector("#bgrChangeBtn");
-let i = 0
-button2.addEventListener("click", changeColor);
+const changeColorButtonAgain = document.querySelector('#bgrChangeBtn');
 
-function changeColor() {
-    document.body.style.backgroundColor = colors[i]
-     if (i < colors.length - 1) {
-        i++;
+let index = 0;
+
+const colorChange = (event) => {
+    const colors = ['pink', 'green', 'blue', 'purple', 'orange'];
+    event.preventDefault();
+    document.body.style.backgroundColor = colors[index];
+    if(index === 4) {
+        index = 0;
     } else {
-        i = 0;
-    }
-}
+    index++;
+    };
+};
+
+changeColorButtonAgain.addEventListener("click", colorChange);
