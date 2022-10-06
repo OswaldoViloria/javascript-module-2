@@ -56,7 +56,7 @@ submitButton.addEventListener("click", (event) => {
 
     const isEverythingValid = isEmailValid && isNameValid && isPersonalDescriptionValid 
     if (isEverythingValid) {
-        window.alert("Gracias por Registrarse") 
+        window.alert("thank you for filling out the form") 
         emailInput.value=""
         nameInput.value=""
         personalDescriptionInput.value=""
