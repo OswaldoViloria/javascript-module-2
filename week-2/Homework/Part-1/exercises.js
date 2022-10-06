@@ -39,9 +39,7 @@ arrayOfPeople.forEach((element) => {
  listaDeObjetos.innerHTML = shopping
  listaDesordenada.appendChild(listaDeObjetos)
  content.appendChild(listaDesordenada)
- })
-}
-
+})}
 
 /**
     I'd like to display my three favorite books inside a nice webpage!
