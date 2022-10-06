@@ -4,7 +4,7 @@ The following code contains syntax errors - try and fix them!
 Once you fix them, run this file, it should output the correct values!
 */
 
-let person = {
+/* let person = {
     name: "Alice",
     age: 25,
     currentAddress: "Glasgow",
@@ -13,5 +13,17 @@ let person = {
     },
     celebrateBirthday: function {
         that.age = that.age + 1;
+    }
+}; */
+
+let person = {
+    name: "Alice",
+    age: 25,
+    currentAddress: "Glasgow",
+    changeAddress: function(newAddress){
+        this.currentAddress = newAddress;
+    },
+    celebrateBirthday: function(){
+        this.age = this.age + 1;
     }
 };

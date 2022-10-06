@@ -20,10 +20,10 @@ let highScores = {
 
 // ONLY EDIT BELOW HERE
 
-let capitalCitiesKeys = ;
-let highScoresKeys = ;
-let capitalCitiesValues = ;
-let highScoresValues = ;
+let capitalCitiesKeys = console.log(Object.keys(capitalCities));
+let highScoresKeys = console.log(Object.keys(highScores));
+let capitalCitiesValues = console.log(Object.values(capitalCities));
+let highScoresValues = console.log(Object.values(highScores)) ;s
 
 // ONLY EDIT ABOVE HERE
 

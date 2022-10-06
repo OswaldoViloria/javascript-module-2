@@ -9,7 +9,15 @@ A person named Alice is defined below.
 let person = {
     name: "Alice",
     age: 25,
+    greet: function(){
+      return "Hola a todos!"
+    },
+    sayName: function(){
+      return `hola mi nombre es ${this.name}`
+    }
   };
+
+
   
   /*
   DO NOT EDIT ANYTHING BELOW THIS LINE

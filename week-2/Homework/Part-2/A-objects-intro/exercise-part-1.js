@@ -17,3 +17,12 @@ var car = {
 
 */
 
+let house = {
+    tamaño: "Grande",
+    numeroDeVentanas: 12,
+    numeroDePuertas: 5,
+    color: "Azul con Gris",
+    hayPersonasViviendoAlli: true,
+}
+
+console.log(house);
