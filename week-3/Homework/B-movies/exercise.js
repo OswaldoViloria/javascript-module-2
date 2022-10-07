@@ -59,9 +59,29 @@ var movies = [
 ];
 
 // create showMovies function
-
+function showMovies(movies){
+  let allMovies = document.getElementById("all-movies")
+  let moviesNumber = document.getElementById("movies-number")
+  moviesNumber.innerHTML = movies.length
+  movies.forEach((element) => {
+    let newP = document.createElement("p")
+    newP.innerHTML= `${element.title} ${element.director}`
+    allMovies.appendChild(newP)
+  });
+};
+setTimeout(() => showMovies(movies), 2000)
 
 // create a new movie object for your favorite movie
-
+let myMovies = {
+  title: "Interestellar",
+  director: "Christopher Nolan",
+  type: "Science Fiction",
+  haveWatched: true
+}
 
 // create addMovies function
+function addMovies(movie){
+  movies.push(movie)
+};
+setTimeout(() => addMovies(myMovies), 1000)
+

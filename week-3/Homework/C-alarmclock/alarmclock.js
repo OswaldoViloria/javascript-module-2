@@ -1,4 +1,22 @@
-function setAlarm() {}
+let getFullMinutes = function(minutes){
+    if (minutes < 10) {
+        return '0' + minutes;
+    }
+    return minutes;
+  };
+  function setAlarm() {
+    let time = document.querySelector("#alarmSet").value;
+    const timeRemaining = document.querySelector("#timeRemaining");
+    timeRemaining.textContent = "Time Remaining: 00:" + getFullMinutes(time);
+     const intervalId = setInterval(()=>{
+       time = time -1;
+       timeRemaining.textContent = "Time Remaining: 00:" + getFullMinutes(time);
+       if (time === 0){
+         clearInterval(intervalId);
+         playAlarm();
+       }
+     }, 1000)
+  }
 
 // DO NOT EDIT BELOW HERE
 
