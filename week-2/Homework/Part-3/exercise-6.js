@@ -100,4 +100,58 @@ var mentors = [
 ];
 
 //YOUR CODE HERE
+const allMentors = mentors
 
+/* Ejercicio 1 */
+allMentors.forEach(
+  Element => console.log(`Hi, my name is ${Element.firstName} ${Element.lastName}. I work in Barcelona and i know React.`)
+);
+
+/* Ejercicio 2 */
+allMentors.forEach(
+  Element => {
+    if (Element.job.city === "Barcelona"){
+    Element.class = ("JUN1")
+    Element.skills.push("SQL")
+  }}
+);
+
+/* Ejercicio 3 */
+allMentors.forEach(Element => {
+  Element.addSkill = function addSkill(newSkill){
+    Element.skills.push(newSkill);
+  }}
+);
+
+/* Ejercicio 4 */
+function addSkills(allMentors, newSkill){
+  return allMentors.forEach(Element => Element.skills.push(newSkill))
+};
+
+/* Ejercicio 5 */
+function removeSkill(allMentors, newSkill){
+  return allMentors.forEach(Element => Element.skills.filter((item) => item !== newSkill))
+};
+
+/* Ejecicio 6 */
+function mentorWithMoreSkills(arr) {
+  let moreSkilled = arr[0];
+
+  arr.forEach(item => {
+    if (item.skills.length > moreSkilled.skills.length) {
+      moreSkilled = item;
+    }
+  })
+
+  return moreSkilled.firstName;
+};
+
+/* Ejercicio 8 */
+function addStudentLikes(mentors){
+  //your code here
+  mentors.forEach(mentor => {
+    mentor.addStudentLikes = function () {
+      mentor.studentLikes = mentor.studentLikes + 1
+    }
+  })
+};

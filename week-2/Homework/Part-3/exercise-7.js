@@ -28,6 +28,7 @@ In addition will substract 1 in the product stock of bought products
 */
 
 var products = [];
+// var selectedProducts = [];
 
 var product1 = {
   id: 1,
@@ -41,26 +42,63 @@ var product2 = {
   price: 9.99,
   stock: 2
 };
+var product3 = {
+  id: 3,
+  name: "iphone XR",
+  price: 10.99,
+  stock: 3
+};
+var product4 = {
+  id: 4,
+  name: "Macbook",
+  price: 19.99,
+  stock: 2
+};
+
 
 products.push(product1);
 products.push(product2);
+products.push(product3);
+products.push(product4);
+
+
+
 
 var shoppingCart = {
   totalPrice: 0,
   selectedProducts: []
 };
 
-function addToShoppingCart(id){
+function addToShoppingCart(id) {
+  let product = products.find(product => product.id === id)
 
+  if (product.stock >= 1) {
+    shoppingCart.selectedProducts.push(product)
+    shoppingCart.totalPrice = shoppingCart.totalPrice + product.price
+  }
 }
 
-function removeFromShoppingCart(id){
-
+function removeFromShoppingCart(id) {
+  let productIndex = shoppingCart.selectedProducts.findIndex(product => product.id === id);
+  if (productIndex >= 0) {
+    let productToRemove = shoppingCart.selectedProducts[productIndex]
+    shoppingCart.selectedProducts = shoppingCart.selectedProducts.splice(productIndex, 1)
+    shoppingCart.totalPrice = shoppingCart.totalPrice - productToRemove.price
+  } 
 }
 
-function shop(){
+function shop() {
+  // update stock 
+   shoppingCart.selectedProducts.forEach(product => { 
+     let indexInStock = products.findIndex(stockProduct => product.id === stockProduct.id)
+     products[indexInStock].stock = products[indexInStock].stock - 1
+   });
 
+  // reset shoppingCart
+    shoppingCart.selectedProducts = []
+    shoppingCart.totalPrice = 0
 }
+
 
 //results
 addToShoppingCart(1);
